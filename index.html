@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plano Simples Indexado</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #fafafa;
+        font-family: "Inter", Arial, sans-serif;
+        margin: 40px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 0 0 1px #e5e5e5;
+        padding: 36px 32px 32px 32px;
+        max-width: 900px;
+        margin: auto;
+        border: 1px solid #e5e5e5;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .header-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #222;
+      }
+      .btn {
+        background: #2d6654;
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        padding: 12px 36px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn:hover {
+        background: #23503f;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #e5e5e5;
+        margin: 16px 0 28px 0;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 10px;
+      }
+      .section-title .icon {
+        color: #ff9800;
+        font-size: 1.3em;
+        margin-right: 8px;
+      }
+      .potencia-label {
+        color: #888;
+        font-size: 0.98rem;
+        margin-bottom: 6px;
+      }
+      .select-box {
+        width: 180px;
+        position: relative;
+        margin-bottom: 26px;
+      }
+      .select-box select {
+        width: 100%;
+        padding: 10px 38px 10px 14px;
+        border: 2px solid #ddd;
+        border-radius: 22px;
+        font-size: 1.05rem;
+        appearance: none;
+        background: #fff
+          url('data:image/svg+xml;utf8,<svg fill="gray" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+          no-repeat right 12px center/20px 20px;
+        outline: none;
+        font-family: inherit;
+      }
+
+      /* Tarifas */
+      .tarifas-row {
+        display: flex;
+        gap: 18px;
+        margin-top: 10px;
+      }
+      .tarifa-card {
+        background: #fafafa;
+        border-radius: 16px;
+        padding: 18px 20px 16px 20px;
+        flex: 1.6;
+        min-width: 170px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .tarifa-title {
+        font-size: 1.13rem;
+        color: #222;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .tarifa-details-horizontal {
+        display: flex;
+        gap: 48px;
+        align-items: flex-end;
+      }
+      .tarifa-detail {
+        display: flex;
+        flex-direction: column;
+        min-width: 110px;
+      }
+      .tarifa-label {
+        color: #888;
+        font-size: 1.01rem;
+        margin-bottom: 2px;
+      }
+      .tarifa-value {
+        font-weight: 600;
+        font-size: 1.19rem;
+        color: #222;
+        letter-spacing: 0.02em;
+      }
+
+      .tarifa-extra-card {
+        background: #fafafa;
+        border-radius: 16px;
+        padding: 18px 20px 16px 20px;
+        flex: 2.4;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+      }
+      .tarifa-extra-details-horizontal {
+        display: flex;
+        gap: 50px;
+        align-items: flex-end;
+        justify-content: flex-start;
+      }
+      .tarifa-extra-detail {
+        display: flex;
+        flex-direction: column;
+        min-width: 120px;
+      }
+      .tarifa-extra-label {
+        color: #888;
+        font-size: 1.01rem;
+        margin-bottom: 2px;
+      }
+      .tarifa-extra-value {
+        font-weight: 600;
+        font-size: 1.19rem;
+        color: #222;
+        letter-spacing: 0.02em;
+      }
+      @media (max-width: 900px) {
+        .card {
+          padding: 20px 8px;
+        }
+        .tarifas-row {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .tarifa-details-horizontal,
+        .tarifa-extra-details-horizontal {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <span class="header-title">Plano Simples Indexado</span>
+        <button class="btn">Contratar</button>
+      </div>
+      <hr />
+      <div>
+        <div class="section-title">
+          <span class="icon">⚡</span>
+          Eletricidade
+        </div>
+        <div class="potencia-label">Potência Contratada (kVA)</div>
+        <div class="select-box">
+          <select id="potenciaSelect">
+            <option value="1,15">1,15 kVA</option>
+            <option value="2,3">2,3 kVA</option>
+            <option value="3,45">3,45 kVA</option>
+            <option value="4,6">4,6 kVA</option>
+            <option value="5,75">5,75 kVA</option>
+            <option value="6,9">6,9 kVA</option>
+            <option value="10,35">10,35 kVA</option>
+            <option value="13,8">13,8 kVA</option>
+            <option value="17,25">17,25 kVA</option>
+            <option value="20,7">20,7 kVA</option>
+          </select>
+        </div>
+        <div class="tarifas-row">
+          <div class="tarifa-card">
+            <div class="tarifa-title">Tarifa de Acesso às Redes</div>
+            <div class="tarifa-details-horizontal">
+              <div class="tarifa-detail">
+                <span class="tarifa-label">Energias</span>
+                <span class="tarifa-value">0,0625 €/kWh</span>
+              </div>
+              <div class="tarifa-detail">
+                <span class="tarifa-label">Potência</span>
+                <span class="tarifa-value" id="potenciaDiaValue"
+                  >0,0531 €/dia</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tarifa-extra-card">
+            <div class="tarifa-extra-details-horizontal">
+              <div class="tarifa-extra-detail">
+                <span class="tarifa-extra-label">Banda de mFRR</span>
+                <span class="tarifa-extra-value">0,003206 €/kWh</span>
+              </div>
+              <div class="tarifa-extra-detail">
+                <span class="tarifa-extra-label"
+                  >Preço de Energia Iberdrola</span
+                >
+                <span class="tarifa-extra-value"><b>POMIEp</b> €/kWh</span>
+              </div>
+              <div class="tarifa-extra-detail">
+                <span class="tarifa-extra-label">Q*</span>
+                <span class="tarifa-extra-value">0,030 €/kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const potenciaMap = {
+        "1,15": "0,0531",
+        "2,3": "0,1063",
+        "3,45": "0,1594",
+        "4,6": "0,2125",
+        "5,75": "0,2657",
+        "6,9": "0,3188",
+        "10,35": "0,4782",
+        "13,8": "0,6376",
+        "17,25": "0,797",
+        "20,7": "0,9563",
+      };
+
+      const select = document.getElementById("potenciaSelect");
+      const potenciaDiaValue = document.getElementById("potenciaDiaValue");
+
+      select.addEventListener("change", function () {
+        const selected = select.value;
+        const valor = potenciaMap[selected];
+        potenciaDiaValue.textContent = valor + " €/dia";
+      });
+    </script>
+  </body>
+</html>
